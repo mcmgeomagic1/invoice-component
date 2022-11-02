@@ -93,6 +93,7 @@ export const FlexLayout = styled.div`
     @media(max-width: ${({theme}) => theme.mobile}) {
 		flex-direction: column;
         grid-gap: 2em;
+        padding-top: 1.5em;
 	}
 `
 

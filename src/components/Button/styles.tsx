@@ -13,5 +13,6 @@ export const StyledButton = styled.button<styledButtonProps>`
     background: ${props => props.checked ? "#FFCE48" : "#0C2E4E"};
     color: ${props => props.checked ? "#000" : "#fff"};
     cursor: pointer;
+    z-index: 1;
 
 `

@@ -15,7 +15,7 @@ const animation = keyframes`
 
 export const Row = styled.div`
 	width: 1095px;
-	height: 100vh;
+	height: 100%;
 	margin: 0 auto;
 	position: relactive;
 	border-left: 1px solid rgba(255,255,255,.1);

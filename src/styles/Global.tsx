@@ -51,6 +51,10 @@ const GlobalStyles = createGlobalStyle`
 		font-size: 95%;
 	}
 
+	#root {
+		height: 100%;
+	}
+
 `
 
 export default GlobalStyles

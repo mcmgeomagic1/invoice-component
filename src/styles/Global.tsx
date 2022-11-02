@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
 	body,html {
 		width: 100%;
 		height: 100%;
-		background: "#0A2540";
+		background: #0A2540;
 		color: #fff;
 		font-size: 18px;
 		font-family: 'Roboto', sans-serif;

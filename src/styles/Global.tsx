@@ -111,7 +111,11 @@ const GlobalStyles = createGlobalStyle`
 
 	#root {
 		width: 100%;
-		height: 100%;
+		height: 100vh;
+
+		@media(max-width: 1140px) {
+            height: 100%;
+        }
 	}
 
 `

@@ -12,28 +12,6 @@ const FadeIn = keyframes`
     }
 `
 
-const FadeInLeft = keyframes`
-    0% {
-        width: 0;
-        left: -10em;
-    }
-
-    100% {
-        width: 50%;
-        left: 0;
-    }
-`
-
-const FadeInRight = keyframes`
-    0% {
-        width: 0;
-        right: -10em;
-    }
-
-    100% {
-        right: 0;
-    }
-`
 export const GranualControlSection = styled.div`
     position: relative;
     width: 100%;
@@ -42,40 +20,6 @@ export const GranualControlSection = styled.div`
     p {
         color: ${({theme})=> theme.colors.textColor};
         opacity: 1;
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        background: ${({theme})=> theme.colors.primary};
-        width: 50%;
-        height: 50%;
-        top: 0;
-        left:0;
-        clip-path: polygon(36% 0, 0 0, 0 4%);
-        animation: ${FadeInLeft} 0.3s ease-in-out;
-        animation-fill-mode: backwards;
-
-        @media(max-width: ${({theme}) => theme.mobile}) {
-            display: none
-        }
-    }
-    &:after {
-        content: "";
-        position: absolute;
-        background: ${({theme})=> theme.colors.primary};
-        width: 50%;
-        height: 90%;
-        bottom: 0em;
-        right: 0em;
-        clip-path: polygon(100% 100%, 100% 96%, 61% 100%);
-        animation: ${FadeInRight} 0.3s ease-in-out;
-        animation-delay: 0.2s;
-        animation-fill-mode: backwards;
-
-        @media(max-width: ${({theme}) => theme.mobile}) {
-            display: none
-        }
     }
 `
 
@@ -87,14 +31,13 @@ export const FlexLayout = styled.div`
 
     @media(max-width: ${({theme}) => theme.tablet}) {
 		width: 100%;
-        height: 100%;
-        border: 1px solid red;
+        height: auto;
 	}
 
     @media(max-width: ${({theme}) => theme.mobile}) {
 		flex-direction: column;
-        grid-gap: 2em;
-        padding: 4em 0;
+        grid-gap: 0em;
+        padding: 3em 0;
 	}
 `
 
@@ -129,6 +72,7 @@ export const Flex2 = styled.div`
 
     @media(max-width: ${({theme})=> theme.mobile}) {
         flex: 100%;
+        height: 100%;
     }
 `
 export const CheckBoxDiv = styled.div`
@@ -141,12 +85,12 @@ export const ButtonDiv = styled.div`
     width: 100%;
     display: none;
     overflow-x: scroll;
+    margin: 2em 0;
 
     &::-webkit-scrollbar {
 		width: 0;
         display: none;
 	}
-    padding-top: 2em;
 
     @media(max-width: ${({theme})=> theme.mobile}) {
         display: block;
@@ -157,7 +101,6 @@ export const ButtonDiv = styled.div`
 export const Scrollable = styled.div`
     display: flex;
     width: 280%;
-    grid-gap: 1em;
 
     @media(max-width: ${({theme}) => theme.tablet}) {
         width: 157.5%;

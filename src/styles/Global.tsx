@@ -1,5 +1,28 @@
 
-import {createGlobalStyle} from 'styled-components'
+import {createGlobalStyle, keyframes} from 'styled-components'
+
+const FadeInLeft = keyframes`
+    0% {
+        width: 0;
+        left: -10em;
+    }
+
+    100% {
+        width: 50%;
+        left: 0;
+    }
+`
+
+const FadeInRight = keyframes`
+    0% {
+        width: 0;
+        right: -10em;
+    }
+
+    100% {
+        right: 0;
+    }
+`
 
 const GlobalStyles = createGlobalStyle`
 
@@ -11,16 +34,50 @@ const GlobalStyles = createGlobalStyle`
 		box-sizing: border-box;
 	}
 
+
 	body,html {
 		width: 100%;
-		height: 100%;
+		height: auto;
 		background: #0A2540;
 		color: #fff;
 		font-size: 18px;
 		font-family: 'Roboto', sans-serif;
 		overflow-x: hidden;
-		border: 1px solid green;
 	}
+
+	body:before {
+        content: "";
+        position: absolute;
+        background: #FFCE48;
+        width: 50%;
+        height: 50%;
+        top: 0;
+        left:0;
+        clip-path: polygon(36% 0, 0 0, 0 4%);
+        animation: ${FadeInLeft} 0.3s ease-in-out;
+        animation-fill-mode: backwards;
+
+        @media(max-width: 949px) {
+            display: none
+        }
+    }
+    body:after {
+        content: "";
+        position: absolute;
+        background: #FFCE48;
+        width: 50%;
+        height: 90%;
+        bottom: 0em;
+        right: 0em;
+        clip-path: polygon(100% 100%, 100% 96%, 61% 100%);
+        animation: ${FadeInRight} 0.3s ease-in-out;
+        animation-delay: 0.2s;
+        animation-fill-mode: backwards;
+
+        @media(max-width: 949px) {
+            display: none
+        }
+    }
 
 
 	img{
@@ -53,8 +110,8 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	#root {
-		max-height: 200%;
-		border: 1px solid yellow;
+		width: 100%;
+		height: 100%;
 	}
 
 `

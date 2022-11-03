@@ -9,7 +9,7 @@ export const App: React.FC =() => {
 
 
   return (
-    <ThemeProvider theme={Theme} >
+    <ThemeProvider theme={Theme}>
       <GlobalStyles/>
       <AppProvider>
           <GraualControl/>

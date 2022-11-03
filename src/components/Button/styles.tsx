@@ -5,7 +5,7 @@ interface styledButtonProps {
     checked: boolean
 }
 export const StyledButton = styled.button<styledButtonProps>`
-    padding: .7em 2em;
+    padding: .7em 1.2em;
     border-radius: 25px;
     border: 0;
     font-weight: bold;
@@ -14,5 +14,5 @@ export const StyledButton = styled.button<styledButtonProps>`
     color: ${props => props.checked ? "#000" : "#fff"};
     cursor: pointer;
     z-index: 1;
-
+    margin-right: 1em;
 `

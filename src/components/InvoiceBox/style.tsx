@@ -58,7 +58,7 @@ export const InvoiceBoxDiv = styled.div`
     z-index: 1;
 
     @media(max-width: ${({theme}) => theme.tablet}) {
-        height: 90%;
+        height: 100vh;
 	}
 `
 

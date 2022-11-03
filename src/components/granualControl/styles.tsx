@@ -87,13 +87,14 @@ export const FlexLayout = styled.div`
 
     @media(max-width: ${({theme}) => theme.tablet}) {
 		width: 100%;
-        height: 90vh;
+        height: 100%;
+        border: 1px solid red;
 	}
 
     @media(max-width: ${({theme}) => theme.mobile}) {
 		flex-direction: column;
         grid-gap: 2em;
-        padding-top: 1.5em;
+        padding: 4em 0;
 	}
 `
 

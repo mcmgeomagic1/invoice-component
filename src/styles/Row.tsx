@@ -17,7 +17,7 @@ export const Row = styled.div`
 	width: 1095px;
 	height: 100%;
 	margin: 0 auto;
-	position: relactive;
+	position: relative;
 	border-left: 1px solid rgba(255,255,255,.1);
 	border-right: 1px solid rgba(255,255,255,.1);
 	display: flex;

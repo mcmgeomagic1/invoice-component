@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
 		font-size: 18px;
 		font-family: 'Roboto', sans-serif;
 		overflow-x: hidden;
+		border: 1px solid green;
 	}
 
 
@@ -52,7 +53,8 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	#root {
-		height: 100%;
+		max-height: 200%;
+		border: 1px solid yellow;
 	}
 
 `

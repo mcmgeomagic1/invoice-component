@@ -12,56 +12,17 @@ import {
 import { InvoiceBox } from "../InvoiceBox";
 import { CheckBox } from "../ChexkBox";
 import { Button } from "../Button";
-import { InvoiceData} from "./InvoiceData"
+import { useAppContext } from "../../context/AppContext";
 
-export const GraualControl: React.FC =() => {
+export const GraualControl: React.FC =()=> {
     const [isOneTimeChecked, setIsOneTimeChecked] =useState(true)
     const [isRecurringBillingChecked, setIsRecurringBillingChecked] =useState(true)
     const [isUsageBasedBillingChecked, setIsUsageBasedBillingChecked] =useState(true)
     const [isTieredPricingChecked, setIsTieredPricingChecked] =useState(true)
     const [isPromotionsAndTrialPeriodChecked, setIsPromotionsAndTrialPeriodChecked] =useState(true)
     const [isBillingFrequencyChecked, setIsBillingFrequencyChecked] =useState(true)
-    const [dynamicInvoiceData, setDynamicInvoiceData] = useState<any>(InvoiceData)
 
-
-    type TypedNewDynamicInvoiceData = {
-        invoiceId: number,
-        itemType: string,
-        description: string,
-        qty: number,
-        price: string,
-        amount: string,
-        group: any 
-    }
-
-    function addToInvoiceDataArray (itemType: string, description: string, quantity: number | null, price: string, amount: string, group: any): void {
-            const invoiceId: number = dynamicInvoiceData.length
-
-            if(itemType === "single") {
-                function addInvoiceRow () {
-                    const NewDynamicInvoiceData: TypedNewDynamicInvoiceData = dynamicInvoiceData.concat({invoiceId: invoiceId, itemType: itemType, description: description, qty: quantity, price: price, amount: amount})
-                    setDynamicInvoiceData(NewDynamicInvoiceData)
-                }
-                addInvoiceRow()
-            }else if(itemType === "group") {
-                function addInvoiceRow () {
-                    const NewDynamicInvoiceData: TypedNewDynamicInvoiceData = dynamicInvoiceData.concat({invoiceId: invoiceId, itemType: itemType, description: description, amount: amount, group: group})
-                    setDynamicInvoiceData(NewDynamicInvoiceData)
-                }
-                addInvoiceRow()
-            }else {
-                function addInvoiceRow () {
-                    const NewDynamicInvoiceData: TypedNewDynamicInvoiceData = dynamicInvoiceData.concat({invoiceId: invoiceId, description: description, amount: amount})
-                    setDynamicInvoiceData(NewDynamicInvoiceData)
-                }
-                addInvoiceRow()
-            }
-    } 
-
-    function removeFromInvoiceDataArray(description: string): void {
-        const newDynamicInvoiceData = dynamicInvoiceData.filter((invoiceRow: any) => invoiceRow.description !== description)
-        setDynamicInvoiceData(newDynamicInvoiceData)
-    }
+    const {addToInvoiceDataArray, removeFromInvoiceDataArray } = useAppContext()
     
     return (
        <GranualControlSection>
@@ -208,7 +169,7 @@ export const GraualControl: React.FC =() => {
                         </ButtonDiv>
                     </Flex1>
                     <Flex2>
-                        <InvoiceBox dynamicInvoiceData={dynamicInvoiceData} isBillingFrequencyChecked={isBillingFrequencyChecked}/>
+                        <InvoiceBox isBillingFrequencyChecked={isBillingFrequencyChecked}/>
                     </Flex2>
                 </FlexLayout>
             </Row>

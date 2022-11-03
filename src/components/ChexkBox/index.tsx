@@ -9,21 +9,22 @@ interface CheckBoxProps {
     addToInvoiceData: ()=> void
     removeFromInvoiceDataArray: ()=> void
 }
+
 export const CheckBox: React.FC<CheckBoxProps>=({checked, onStateChange, addToInvoiceData, labelText, description, removeFromInvoiceDataArray})=> {
 
-    const clickHunder: ()=> void =()=> {
-        if(checked) {
-            onStateChange()
+    const clickHundler: ()=> void =()=> {
+        checked ? (
+            onStateChange(),
             removeFromInvoiceDataArray()
-        }else {
-            onStateChange()
+        ) : (
+            onStateChange(),
             addToInvoiceData()
-        }
+        )
     }
     return(
-        <BillingOptionRow  onClick={clickHunder}>
+        <BillingOptionRow  onClick={clickHundler}>
             <div>
-                <HiddenCheckbox checked={checked} onChange={clickHunder}/>
+                <HiddenCheckbox checked={checked} onChange={clickHundler}/>
             </div>
             <div>
                 <Label htmlFor="oneTime" checked={checked}>{labelText}</Label>

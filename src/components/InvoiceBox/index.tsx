@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useAppContext } from "../../context/AppContext"
 import {
     InvoiceBoxDiv, 
     InvoiceHeader, 
@@ -17,12 +18,12 @@ import {
 
 
 interface invoiceBoxProps {
-    dynamicInvoiceData: any
     isBillingFrequencyChecked: boolean
 }
-export const InvoiceBox: React.FC<invoiceBoxProps>=({dynamicInvoiceData, isBillingFrequencyChecked}) => {
+export const InvoiceBox: React.FC<invoiceBoxProps>=({isBillingFrequencyChecked}) => {
     const[totalPrice, setTotalPrice] = useState(5265)
     const[billingFrequencyData, setBillingFrequencyDate] = useState("")
+    const {dynamicInvoiceData} = useAppContext()
 
     useEffect(()=> {
         findTotal()

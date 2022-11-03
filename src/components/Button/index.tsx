@@ -7,16 +7,17 @@ interface ButtonProps {
     addToInvoiceData: ()=> void
     removeFromInvoiceDataArray: ()=> void
 }
+
 export const Button: React.FC<ButtonProps>=({checked, onStateChange, addToInvoiceData, text, removeFromInvoiceDataArray}) => {
 
     const clickHundler: ()=> void =()=> {
-        if(checked) {
-            onStateChange()
+        checked ? (
+            onStateChange(),
             removeFromInvoiceDataArray()
-        }else {
-            onStateChange()
+        ) : (
+            onStateChange(),
             addToInvoiceData()
-        }
+        )
     }
 
     return(
